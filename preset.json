@@ -1,0 +1,7 @@
+{
+  "packageManager": "yarn",
+  "useConfigFiles": true,
+  "cssPreprocessor": "less",
+  "plugins": {},
+  "configs": {}
+}

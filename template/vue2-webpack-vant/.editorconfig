@@ -1,0 +1,7 @@
+[*.{js,jsx,ts,tsx,vue}] # 指定类型文件生效
+indent_style = space # 缩进风格
+indent_size = 2 # 常用为 2 字节或者 4 字节。
+end_of_line = lf # 换行符类型
+charset = utf-8 # 编码格式
+trim_trailing_whitespace = true # 是否删除行末尾空格
+insert_final_newline = true # 指定文件进行格式化
