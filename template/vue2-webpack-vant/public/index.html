@@ -20,17 +20,20 @@
     <!-- 格式检测 关闭 telephone，email，address -->
     <meta name="format-detection" content="telephone=no,email=no,address=no" />
     <!-- 图标 -->
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <link rel="icon" href="<%%= BASE_URL %%>favicon.ico" />
     <!-- 是一个描述网页概况的标签，内容用于引导搜索引擎进行收录的，使得搜索引擎能够通过内容找到网页 -->
     <meta name="description" content="华盛通" />
     <!-- 标题 -->
     <title>华盛通</title>
 
     <!-- 使用CDN的CSS文件 -->
-    <% for (var i in htmlWebpackPlugin.options.cdn &&
-    htmlWebpackPlugin.options.cdn.css) { %>
-    <link rel="stylesheet" href="<%= htmlWebpackPlugin.options.cdn.css[i] %>" />
-    <% } %>
+    <%% for (var i in htmlWebpackPlugin.options.cdn &&
+    htmlWebpackPlugin.options.cdn.css) { %%>
+    <link
+      rel="stylesheet"
+      href="<%%= htmlWebpackPlugin.options.cdn.css[i] %%>"
+    />
+    <%% } %%>
   </head>
   <body>
     <noscript>
@@ -42,13 +45,13 @@
     <div id="app"></div>
 
     <!-- beacon 统计 -->
-    <% if (htmlWebpackPlugin.options.ENV !== 'dev') { %>
+    <%% if (htmlWebpackPlugin.options.ENV !== 'dev') { %%>
     <script src="https://r.hstong.com/v2/hst-ui/commons/plugins/beacon/beacon.min.js?agentId=ua20210323094234"></script>
-    <% } %>
+    <%% } %%>
 
     <!-- 雅虎統計 -->
-    <% if (htmlWebpackPlugin.options.ENV !== 'dev' &&
-    htmlWebpackPlugin.options.NeedStatistics) { %>
+    <%% if (htmlWebpackPlugin.options.ENV !== 'dev' &&
+    htmlWebpackPlugin.options.NeedStatistics) { %%>
     <script>
       (function (w, d, t, r, u) {
         var f, n, i;
@@ -69,30 +72,30 @@
           i.parentNode.insertBefore(n, i);
       })(window, document, 'script', '//bat.bing.com/bat.js', 'uetq');
     </script>
-    <% } %>
+    <%% } %%>
 
     <!-- 手机网页前端调试面板 -->
-    <% if (htmlWebpackPlugin.options.ENV === 'daily') { %>
+    <%% if (htmlWebpackPlugin.options.ENV === 'daily') { %%>
     <script src="//cdn.jsdelivr.net/npm/eruda"></script>
     <script>
       eruda.init();
     </script>
-    <% } %>
+    <%% } %%>
 
     <!-- 自定义兼容方法 -->
     <script
       type="text/javascript"
-      src="<%= BASE_URL %>js/compatible.js"
+      src="<%%= BASE_URL %%>js/compatible.js"
     ></script>
 
     <!-- 使用CDN的JS文件 -->
-    <% for (var i in htmlWebpackPlugin.options.cdn &&
-    htmlWebpackPlugin.options.cdn.js) { %>
+    <%% for (var i in htmlWebpackPlugin.options.cdn &&
+    htmlWebpackPlugin.options.cdn.js) { %%>
     <script
       type="text/javascript"
-      src="<%= htmlWebpackPlugin.options.cdn.js[i] %>"
+      src="<%%= htmlWebpackPlugin.options.cdn.js[i] %%>"
     ></script>
-    <% } %>
+    <%% } %%>
 
     <!-- built files will be auto injected -->
   </body>
