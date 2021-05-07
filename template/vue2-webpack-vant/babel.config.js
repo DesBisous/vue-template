@@ -1,6 +1,7 @@
 module.exports = {
   presets: [
     '@vue/cli-plugin-babel/preset', // babel 解析器
+    '@vue/babel-preset-jsx',
   ],
   plugins: [
     '@babel/plugin-transform-modules-commonjs', // commonjs 转换 module

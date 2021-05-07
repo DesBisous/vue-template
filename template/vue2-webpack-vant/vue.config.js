@@ -17,9 +17,10 @@ module.exports = {
   productionSourceMap: !isProd, // 不需要生产环境的 source map
   filenameHashing: true, // 开发环境下是否哈希重写文件名
   transpileDependencies: isProd ? ['vue-i18n', '@intlify'] : [], // 对 node_modules 指定依赖 Babel 转译
-  publicPath: isProd
-    ? `${process.env.VUE_APP_RES_URL}/project-name/${process.env.ENV}`
-    : '/',
+  publicPath: '/',
+  // isProd
+  //   ? `${process.env.VUE_APP_RES_URL}/project-name/${process.env.ENV}`
+  //   : '/',
   ...cssConfig(),
   ...devServerConfig(),
   configureWebpack: config => {

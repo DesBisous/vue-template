@@ -1,6 +1,7 @@
 import qs from 'qs';
 import VueI18n from 'vue-i18n';
 import store from '@/store';
+import { inApp } from '@hst/utils';
 import { Locale } from 'vant';
 import { getCookie, setCookie } from '@/utils/cookie';
 import { deepObjectMerge } from '@/utils/common';
@@ -52,8 +53,7 @@ export function getUAgentLang() {
  * 整合获取 lang
  */
 export function getLang() {
-  const isApp = true;
-  return !isApp ? getUAgentLang() : getQueryLang();
+  return inApp() ? getUAgentLang() : getQueryLang();
 }
 
 /**
