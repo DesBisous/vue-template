@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <!-- 启动默认用 webkit 核，HTML 支持、ActiveX 不支持 -->
+    <meta name="renderer" content="webkit" />
+    <!-- 指定网页的兼容性模式，IE=edge IE 使用最新的引擎渲染网页，chrome=1 激活Chrome Frame，IE8+ 识别-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- 添加到主屏幕“后，全屏显示 -->
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <!-- 添加到主屏后的标题 iOS 6+ -->
+    <meta name="apple-mobile-web-app-title" content="华盛通" />
+    <!-- 默认 no 显示苹果工具栏和菜单栏，yes 不显示，App 嵌入可用 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 视图窗口、viewport-fit=cover 网页内容完全覆盖可视窗口，width=device-width 视图宽度设备设备宽度  -->
+    <meta
+      name="viewport"
+      content="viewport-fit=cover,width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"
+    />
+    <!-- 格式检测 关闭 telephone，email，address -->
+    <meta name="format-detection" content="telephone=no,email=no,address=no" />
+    <!-- 图标 -->
+    <link rel="icon" href="<%%= BASE_URL %%>favicon.ico" />
+    <!-- 是一个描述网页概况的标签，内容用于引导搜索引擎进行收录的，使得搜索引擎能够通过内容找到网页 -->
+    <meta name="description" content="华盛通" />
+    <!-- 标题 -->
+    <title>华盛通</title>
+
+    <!-- 使用CDN的CSS文件 -->
+    <%% for (var i in htmlWebpackPlugin.options.cdn &&
+    htmlWebpackPlugin.options.cdn.css) { %%>
+    <link
+      rel="stylesheet"
+      href="<%%= htmlWebpackPlugin.options.cdn.css[i] %%>"
+    />
+    <%% } %%>
+  </head>
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but 华盛通 doesn't work properly without JavaScript
+        enabled. Please enable it to continue.</strong
+      >
+    </noscript>
+    <div id="app"></div>
+
+    <!-- beacon 监控异常数据 -->
+    <%% if (htmlWebpackPlugin.options.ENV !== 'dev') { %%>
+    <!-- <script src="https://r.hstong.com/v2/hst-ui/commons/plugins/beacon/beacon.min.js?agentId=ua20210323094234"></script> -->
+    <%% } %%>
+
+    <!-- 雅虎統計 -->
+    <%% if (htmlWebpackPlugin.options.ENV !== 'dev' &&
+    htmlWebpackPlugin.options.NeedStatistics) { %%>
+    <script>
+      (function (w, d, t, r, u) {
+        var f, n, i;
+        (w[u] = w[u] || []),
+          (f = function () {
+            var o = { ti: '25148026' };
+            (o.q = w[u]), (w[u] = new UET(o)), w[u].push('pageLoad');
+          }),
+          (n = d.createElement(t)),
+          (n.src = r),
+          (n.async = 1),
+          (n.onload = n.onreadystatechange = function () {
+            var s = this.readyState;
+            (s && s !== 'loaded' && s !== 'complete') ||
+              (f(), (n.onload = n.onreadystatechange = null));
+          }),
+          (i = d.getElementsByTagName(t)[0]),
+          i.parentNode.insertBefore(n, i);
+      })(window, document, 'script', '//bat.bing.com/bat.js', 'uetq');
+    </script>
+    <%% } %%>
+
+    <!-- 手机网页前端调试面板 -->
+    <%% if (htmlWebpackPlugin.options.ENV === 'daily') { %%>
+    <script src="//cdn.jsdelivr.net/npm/eruda"></script>
+    <script>
+      eruda.init();
+    </script>
+    <%% } %%>
+
+    <!-- 自定义兼容方法 -->
+    <script
+      type="text/javascript"
+      src="<%%= BASE_URL %%>js/compatible.js"
+    ></script>
+
+    <!-- 使用CDN的JS文件 -->
+    <%% for (var i in htmlWebpackPlugin.options.cdn &&
+    htmlWebpackPlugin.options.cdn.js) { %%>
+    <script
+      type="text/javascript"
+      src="<%%= htmlWebpackPlugin.options.cdn.js[i] %%>"
+    ></script>
+    <%% } %%>
+
+    <!-- built files will be auto injected -->
+  </body>
+</html>

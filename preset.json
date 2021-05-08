@@ -1,5 +1,5 @@
 {
-  "packageManager": "yarn",
+  "packageManager": "npm",
   "useConfigFiles": true,
   "cssPreprocessor": "less",
   "plugins": {},
