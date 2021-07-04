@@ -1,0 +1,58 @@
+.clearfix() {
+
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.user-select(@val: none) {
+  -webkit-user-select: @val;
+  -khtml-user-select: @val;
+  -moz-user-select: @val;
+  -ms-user-select: @val;
+  -o-user-select: @val;
+  user-select: @val;
+}
+
+// 文字溢出隐藏
+.ellipsis() {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.ellipsisLine(@line) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @line;
+}
+
+.iPhoneSafeArea() {
+  padding-bottom: constant(safe-area-inset-bottom); //为底下圆弧的高度 34px
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.flexCenter() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-image(@url, @type: 'png', @root: '@') {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-image: e(%('url(~@{root}/assets/images/%a.@{type})', e(@url)));
+
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    background-image: e(%('url(~@{root}/assets/images/%a@2x.@{type})', e(@url)));
+  }
+  @media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 2dppx) {
+    background-image: e(%('url(~@{root}/assets/images/%a@3x.@{type})', e(@url)));
+  }
+}
+

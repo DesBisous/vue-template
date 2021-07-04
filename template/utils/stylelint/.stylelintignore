@@ -1,0 +1,8 @@
+.DS_Store
+node_modules
+/dist
+/public
+/scm
+vue.config.js
+.stylelintrc.js
+.eslintrc.js
