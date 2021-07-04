@@ -2,7 +2,7 @@
 
 Version: 0.2.4 [CHANGLOG](http://gitlab.inzwc.com/hst/fe.team/hst-npm/hs-vue-template/blob/master/CHANGELOG.md)
 
-本项目为 Hstong 华盛通的 Vue 自定义脚手架模板库
+本项目为 Vue 自定义脚手架模板库
 
 ## 使用说明
 
