@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import store from '@/store';
+/* vuex import config */
 import VueRouter from 'vue-router';
 import { historyBase } from '@/data/host';
 import { checkLogin } from '@/utils/auth';
@@ -47,7 +47,12 @@ router.afterEach(() => {
   //gio 统计
   if (window.gio) {
     // 设置登录用户ID, 从 check/login 中获取 GIO_RID
+    <%_ if (features.includes('vuex')) {_%>
     const rId = store.getters['user/userInfo']?.GIO_RID;
+    <%_ } else { _%>
+    const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    const rId = userInfo?.GIO_RID;
+    <%_ } _%>
     if (rId) {
       window.gio('setUserId', rId);
       window.gio('people.set', 'rId', rId);

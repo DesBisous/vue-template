@@ -42,7 +42,8 @@ function getUtils(options) {
   const isMock = utils.includes('mock');
   const isFastclick = utils.includes('fastclick');
   const isStylelint = utils.includes('stylelint');
-  return { isMock, isFastclick, isStylelint };
+  const isSkeleton = utils.includes('skeleton');
+  return { isMock, isFastclick, isStylelint, isSkeleton };
 }
 
 function getPackageValue(pkg, pkgMapKey, value) {

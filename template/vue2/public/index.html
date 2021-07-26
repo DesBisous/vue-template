@@ -49,31 +49,6 @@
     <!-- <script src="https://r.hstong.com/v2/hst-ui/commons/plugins/beacon/beacon.min.js?agentId=ua20210323094234"></script> -->
     <%% } %%>
 
-    <!-- 雅虎統計 - 自行需要添加哈 -->
-    <%% if (htmlWebpackPlugin.options.ENV === 'prod' &&
-    htmlWebpackPlugin.options.NeedStatistics) { %%>
-    <script>
-      (function (w, d, t, r, u) {
-        var f, n, i;
-        (w[u] = w[u] || []),
-          (f = function () {
-            var o = { ti: '25148026' };
-            (o.q = w[u]), (w[u] = new UET(o)), w[u].push('pageLoad');
-          }),
-          (n = d.createElement(t)),
-          (n.src = r),
-          (n.async = 1),
-          (n.onload = n.onreadystatechange = function () {
-            var s = this.readyState;
-            (s && s !== 'loaded' && s !== 'complete') ||
-              (f(), (n.onload = n.onreadystatechange = null));
-          }),
-          (i = d.getElementsByTagName(t)[0]),
-          i.parentNode.insertBefore(n, i);
-      })(window, document, 'script', '//bat.bing.com/bat.js', 'uetq');
-    </script>
-    <%% } %%>
-
     <!-- 添加growing-io埋点事件 -->
     <%% if (htmlWebpackPlugin.options.ENV === 'prod') { %%>
     <!-- GrowingIO Analytics code version 2.1 -->
@@ -106,7 +81,7 @@
     <%% } %%>
 
     <!-- 自定义兼容方法 -->
-    <script type="text/javascript" src="<%%= BASE_URL %%>js/compatible.js"></script>
+    <script type="text/javascript" src="<%= BASE_URL %>js/compatible.js?t=<%= htmlWebpackPlugin.options.time %>"></script>
 
     <!-- 使用CDN的JS文件 -->
     <%% for (var i in htmlWebpackPlugin.options.cdn && htmlWebpackPlugin.options.cdn.js) { %%>

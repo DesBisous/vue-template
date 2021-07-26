@@ -4,7 +4,7 @@ module.exports = {
     /* jsx babel config */
   ],
   plugins: [
-    '@babel/plugin-transform-modules-commonjs', // commonjs 转换 module
+    // '@babel/plugin-transform-modules-commonjs', // module 转换 commonjs
     '@babel/plugin-proposal-nullish-coalescing-operator', // ?? 语法
     '@babel/plugin-proposal-optional-chaining', // ?. 语法
     /* vant babel config */

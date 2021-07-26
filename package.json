@@ -1,0 +1,21 @@
+{
+  "name": "hs-vue-template",
+  "version": "0.2.10",
+  "description": "Version: 0.2.5 [CHANGLOG](http://gitlab.inzwc.com/hst/fe.team/hst-npm/hs-vue-template/blob/master/CHANGELOG.md)",
+  "main": "prompts.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.inzwc.com:hst/fe.team/hst-npm/hs-vue-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vuepress": "^1.8.2"
+  }
+}

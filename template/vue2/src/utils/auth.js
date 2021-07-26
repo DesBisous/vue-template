@@ -1,5 +1,5 @@
 import qs from 'qs';
-import store from '@/store';
+/* vuex import config */
 import { userApi } from '@/api';
 import { passportHost } from '@/data/host';
 import { getLang } from '@/utils/lang';
@@ -25,7 +25,10 @@ const getPassportUrl = () => {
 function toNativeLogin() {
   callHandlerToNative({
     type: 'LOGIN',
-    url: location.href,
+    data: {
+      needPop: 'n', // IOS，关闭登录，是否需要返回上一页
+      url: location.href,
+    },
   });
 }
 
@@ -57,7 +60,11 @@ export async function checkLogin(to) {
   // 校验是否登录
   await tryCatchAjax(userApi.checkLogin(params), res => {
     isLogin = res.data.logined;
+    <%_ if (features.includes('vuex')) {_%>
     store.dispatch('user/setUserInfo', res.data);
+    <%_ } else { _%>
+    localStorage.setItem('userInfo', JSON.stringify(res.data));
+    <%_ } _%>
   });
   !isLogin && goLogin();
 }

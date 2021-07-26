@@ -1,5 +1,7 @@
 const path = require('path');
+const mate = require('./public/js/mate');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+/* skeleton webpack plugin */
 
 const isProd = ['daily', 'beta', 'prod'].includes(process.env.ENV);
 
@@ -16,6 +18,12 @@ const cssConfig = () => ({
         /* antdv webpack css config */
       },
     },
+    extract: isProd
+      ? {
+          // 生产模式下默认将为 true，css分离
+          ignoreOrder: true, // 打包的时候忽略 css 顺序警告
+        }
+      : true,
   },
 });
 
@@ -38,8 +46,8 @@ const cdnConfig = config => {
       plugin.options.cdn = cdnConfigData.cdn;
       // 顺便添加环境变量
       plugin.options.ENV = process.env.ENV;
-      // 判斷是否需要添加雅虎統計
-      plugin.options.NeedStatistics = process.env.VUE_APP_PROJECT === 'OnlineHK';
+      plugin.options.meta = mate;
+      plugin.options.time = Date.now();
     }
   }
 };
@@ -108,6 +116,15 @@ const cleanLogs = config => {
     });
   }
 };
+
+/**
+ * externals 配置
+ */
+const externalsConfig = config => {
+  /* mock webpack externals config */
+};
+
+/* skeleton webpack config */
 
 /**
  * 模块分割
@@ -222,4 +239,6 @@ module.exports = {
   imagesConfig,
   aliasConfig,
   cleanLogs,
+  externalsConfig,
+  /* skeleton webpack export */
 };

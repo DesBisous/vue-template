@@ -2,9 +2,32 @@
 const fs = require('fs');
 const path = require('path');
 const { EOL } = require('os');
+const { delLineByValRegExp } = require('../../../lib/regExp.js');
 
+// 文件
+const vuexAuthFile = 'src/utils/auth.js';
+const vuexRouterFile = 'src/router/index.js';
+// 占位
+const vuexImportMatchKey = '/* vuex import config */';
+// 模板
 const vuexEnterFile = '../../../../template/features/vuex/webpack/index.js';
 const vuexModulesFile = '../../../../template/features/vuex/webpack/modules/user.js';
+// 规则
+const delLineByVantRegExp               = delLineByValRegExp('vuex');
+
+function clearVuex(files) {
+  files[vuexAuthFile] = files[vuexAuthFile].replace(delLineByVantRegExp, '');
+  files[vuexRouterFile] = files[vuexRouterFile].replace(delLineByVantRegExp, '');
+}
+
+function importVuex(files) {
+  if (files[vuexAuthFile]) {
+    files[vuexAuthFile] = files[vuexAuthFile].replace(vuexImportMatchKey, `import store from '@/store';`);
+  }
+  if (files[vuexRouterFile]) {
+    files[vuexRouterFile] = files[vuexRouterFile].replace(vuexImportMatchKey, `import store from '@/store';`);
+  }
+}
 
 function injectVuex(api, files) {
   if (files[api.entryFile]) {
@@ -31,7 +54,9 @@ function integrateWebpack(api, options, files) {
   addStoreFile(files);
   // 对 main.js 写入 Vuex
   injectVuex(api, files);
+  importVuex(files);
 }
 module.exports = {
+  clearVuex,
   integrateWebpack
 }

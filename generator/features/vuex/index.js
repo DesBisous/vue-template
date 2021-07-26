@@ -1,6 +1,6 @@
 
 const { getEnv } = require('../../lib/common.js');
-const { integrateWebpack } = require('./webpack');
+const { integrateWebpack, clearVuex } = require('./webpack');
 const { integrateVite } = require('./vite');
 
 function integrateVuex(api, options, files) {
@@ -14,5 +14,6 @@ function integrateVuex(api, options, files) {
 }
 
 module.exports = {
+  clearVuex,
   integrateVuex
 }

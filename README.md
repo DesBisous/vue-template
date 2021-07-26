@@ -1,8 +1,8 @@
 ## 前言
 
-Version: 0.2.4 [CHANGLOG](http://gitlab.inzwc.com/hst/fe.team/hst-npm/hs-vue-template/blob/master/CHANGELOG.md)
+Version: 0.2.8 [CHANGLOG](http://gitlab.inzwc.com/hst/fe.team/hst-npm/hs-vue-template/blob/master/CHANGELOG.md)
 
-本项目为 Vue 自定义脚手架模板库
+本项目为 Hstong 华盛通的 Vue 自定义脚手架模板库
 
 ## 使用说明
 
@@ -35,19 +35,19 @@ vue create -r http://nexus.tech.2caipiao.com/content/groups/npms/ \
 > -c, --clone                     使用 git clone 获取远程预设选项
 
 #### 安装图示步骤
-![Image text](https://raw.githubusercontent.com/DesBisous/vue-template/master/resource/images/vue-cli-1.png)
+![Image text](http://gitlab.inzwc.com/hst/fe.team/hst-npm/hs-vue-template/raw/master/resource/images/vue-cli-1.jpg)
 
 `当前版本仅支持 Vue2 + Webpack 版本`
 
-![Image text](https://raw.githubusercontent.com/DesBisous/vue-template/master/resource/images/vue-cli-2.png)
+![Image text](http://gitlab.inzwc.com/hst/fe.team/hst-npm/hs-vue-template/raw/master/resource/images/vue-cli-2.jpg)
 
-![Image text](https://raw.githubusercontent.com/DesBisous/vue-template/master/resource/images/vue-cli-3.png)
+![Image text](http://gitlab.inzwc.com/hst/fe.team/hst-npm/hs-vue-template/raw/master/resource/images/vue-cli-3.jpg)
 
 `当前版本仅支持 Vant`
 
-![Image text](https://raw.githubusercontent.com/DesBisous/vue-template/master/resource/images/vue-cli-4.png)
+![Image text](http://gitlab.inzwc.com/hst/fe.team/hst-npm/hs-vue-template/raw/master/resource/images/vue-cli-4.jpg)
 
-![Image text](https://raw.githubusercontent.com/DesBisous/vue-template/master/resource/images/vue-cli-5.png)
+![Image text](http://gitlab.inzwc.com/hst/fe.team/hst-npm/hs-vue-template/raw/master/resource/images/vue-cli-5.jpg)
 
 ## 目录结构说明
 
@@ -55,7 +55,7 @@ vue create -r http://nexus.tech.2caipiao.com/content/groups/npms/ \
 
 完整结构
 
-![Image text](https://raw.githubusercontent.com/DesBisous/vue-template/master/resource/images/vue-cli-6.png)
+![Image text](http://gitlab.inzwc.com/hst/fe.team/hst-npm/hs-vue-template/raw/master/resource/images/vue-cli-6.jpg)
 
 - gitHooks：git 提交钩子相关内容
 - public：不参与编译资源
@@ -81,7 +81,7 @@ vue create -r http://nexus.tech.2caipiao.com/content/groups/npms/ \
 - vue.config.js：Vue 项目配置文件
 - webpack.config.js：webpack 相关配置，用于 vue.config.js
 
-![Image text](https://raw.githubusercontent.com/DesBisous/vue-template/master/resource/images/vue-cli-7.png)
+![Image text](http://gitlab.inzwc.com/hst/fe.team/hst-npm/hs-vue-template/raw/master/resource/images/vue-cli-7.jpg)
 
 - api：接口目录
 - assets：资源文件
@@ -220,7 +220,7 @@ Stylelint 目前定义规范请查看 .stylelintrc.js 文件，**规范文档**�
 
 **Prettier 和 Stylelint 检验均绑定了 git commit 钩子，校验案例：**
 
-![Image text](https://raw.githubusercontent.com/DesBisous/vue-template/master/resource/images/vue-cli-8.png)
+![Image text](http://gitlab.inzwc.com/hst/fe.team/hst-npm/hs-vue-template/raw/master/resource/images/vue-cli-8.jpg)
 
 #### CND 文件引入
 
@@ -233,7 +233,7 @@ Vue2 Webpack 模板已将多语言文件变更为 .json 文件格式，因为 .j
 
 使用图例：
 
-![Image text](https://raw.githubusercontent.com/DesBisous/vue-template/master/resource/images/vue-cli-9.png)
+![Image text](http://gitlab.inzwc.com/hst/fe.team/hst-npm/hs-vue-template/raw/master/resource/images/vue-cli-9.jpg)
 
 ## 问题
 

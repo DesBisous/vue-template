@@ -96,7 +96,7 @@ export const responseIntercept = debounce(function () {}, 1000, false);
 export function reqResultCallback(err, res, cb, errCb) {
   if (err !== null) {
     errCb && errCb(err, res);
-    throw err;
+    console.error(err)
   }
   const sucMsg = res.sucMsg || '';
   const errMsg = res.errMsg || '';
@@ -110,7 +110,7 @@ export function reqResultCallback(err, res, cb, errCb) {
       errMsg || errCode[res.code] || getLang(i18n.locale) === langType.zhCN
         ? res.error
         : res.errorHK || res.error || '';
-    msg && !isHide(res.code) && (!res.isHide || !res.isHide()) && throttleMsg(msg);
+    msg && !isHide(res.code) && (!res.isHide || !res.isHide(res)) && throttleMsg(msg);
     errCb && errCb(err, res);
   }
 }
@@ -131,4 +131,5 @@ export async function tryCatchAjax(request, cb, ...args) {
   args.forEach(arg => combinFunc(arg));
   const [err, res] = await tryCatch(request);
   reqResultCallback(err, { ...res, ...options }, cb, errCb);
+  return [err, res];
 }

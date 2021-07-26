@@ -1,5 +1,5 @@
 const { getFeatures } = require('../lib/common.js');
-const { integrateVuex } = require('./vuex');
+const { integrateVuex, clearVuex } = require('./vuex');
 const { integrateJsx, clearJsx } = require('./jsx');
 const { integrateTsx } = require('./tsx');
 const { integrateUnitTest } = require('./unitTest');
@@ -21,6 +21,7 @@ function integrateFeatures(api, options, files) {
   
   // clear
   clearJsx(files);
+  clearVuex(files);
 }
 
 module.exports = {

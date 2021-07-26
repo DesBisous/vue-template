@@ -10,6 +10,8 @@ const {
   imagesConfig,
   aliasConfig,
   cleanLogs,
+  externalsConfig,
+  /* skeleton vue config require */
 } = require('./webpack.config');
 
 module.exports = {
@@ -32,6 +34,9 @@ module.exports = {
     compressionConfig(config);
     // stylelint 配置
     stylelintConfig(config);
+    // externals 配置
+    externalsConfig(config);
+    /* skeleton vue config */
   },
   chainWebpack: config => {
     // 修复 HMR (热更新)失效

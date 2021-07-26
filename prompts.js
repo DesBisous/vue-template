@@ -68,6 +68,7 @@ module.exports = [
     message: '请选择您想集成的工具',
     choices: [
       { name: 'Mock', value: 'mock' },
+      { name: 'Skeleton', value: 'skeleton' },
       { name: 'Fastclick', value: 'fastclick' },
       { name: 'Stylelint', value: 'stylelint' },
     ],

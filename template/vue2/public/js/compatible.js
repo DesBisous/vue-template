@@ -1,4 +1,5 @@
 !(function () {
+  /* mock public compatible config */
   createObjectValues();
 })();
 

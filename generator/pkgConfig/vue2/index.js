@@ -1,7 +1,8 @@
 const { getFeatures, packageConfigCombin, updatePackageVersion } = require('../../lib/common.js');
 
 const scriptsMap = new Map([
-  ['Unit Testing', { name: 'test:unit', value: 'vue-cli-service test:unit' }]
+  ['stylelint', { name: 'lint:css', value: 'stylelint **/*.{html,vue,css,sass,scss,less} --fix' }],
+  ['Unit Testing', { name: 'test', value: 'jest --coverage --verbose -u' }]
 ]);
 
 const dependenciesMap = new Map([
@@ -37,6 +38,7 @@ const devDependenciesMap = new Map([
     { name: 'stylelint-config-standard', value: '^22.0.0' },
     { name: 'stylelint-webpack-plugin', value: '^2.1.1' }
   ]],
+  ['skeleton', {name: 'vue-skeleton-webpack-plugin', value: '^1.2.2'}]
 ]);
 
 const gitHooksMap = {
@@ -45,6 +47,15 @@ const gitHooksMap = {
   ]),
   "lint-staged": new Map([
     ['stylelint', [
+      {
+        name: '*.{css,sass,scss,less}', value: function (pkg, pkgMapKey) {
+          if (pkgMapKey === 'stylelint') {
+            return [
+              "npm run lint:css"
+            ]
+          }
+        }
+      },
       {
         name: '*.{js,jsx,vue,html}', value: function (pkg, pkgMapKey) {
           if (pkgMapKey === 'stylelint') {
@@ -56,21 +67,12 @@ const gitHooksMap = {
               }
             }
             if (index > -1) {
-              pkg.splice(index + 1, 0, "stylelint **/*.{html,vue,css,sass,scss,less} --fix");
+              pkg.splice(index + 1, 0, "npm run lint:css");
             }
           }
           return pkg;
         }
       },
-      {
-        name: '*.{css,sass,scss,less}', value: function (pkg, pkgMapKey) {
-          if (pkgMapKey === 'stylelint') {
-            return [
-              "npm run lint:css"
-            ]
-          }
-        }
-      }
     ]
     ]
   ])
@@ -88,7 +90,7 @@ const dependenciesPkg = {
   "axios": "^0.21.1",
   "core-js": "^3.6.5",
   "qs": "^6.10.1",
-  "vue": "^2.6.11",
+  "vue": "^2.6.14",
   "vue-i18n": "^8.24.4",
   "vue-router": "^3.2.0"
 }
@@ -116,7 +118,7 @@ const devDependenciesPkg = {
   "lint-staged": "^9.5.0",
   "prettier": "^2.3.0",
   "svg-sprite-loader": "^6.0.6",
-  "vue-template-compiler": "^2.6.11",
+  "vue-template-compiler": "^2.6.14",
 }
 
 const gitHooksPkg = {
